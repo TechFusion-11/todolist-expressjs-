@@ -23,7 +23,9 @@ addbtn.addEventListener('click',()=>{
   if(!task) return alert ('enter a task');
   fetch('api/todos',{
     method:'POST',
-    headers:{'content-Type':'application/json'}}).then(()=>{
+    headers:{'content-Type':'application/json'},
+    body: JSON.stringify({ task })
+  }).then(()=>{
     taskInput.value='';
     fetchTodos();
   });
